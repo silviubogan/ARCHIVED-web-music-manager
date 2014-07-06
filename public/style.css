@@ -1,0 +1,39 @@
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	font-family: sans-serif, Arial;
+}
+
+h1 {
+	border-bottom: solid 1px gray;
+	font-size: large;
+}
+
+div#flex-container {
+	display: flex;
+	flex-direction: row; /*default*/
+	background: yellow;
+	align-items: stretch;
+	height: calc(100% - 75px);
+}
+
+div#tree {
+	flex-grow: 1;
+	/*width: 300px;*/
+	/*height: calc(100% - 75px);*/
+}
+
+div#tree > ul {
+	height: 100%;
+	max-width: 300px;
+}
+
+div#right-panel {
+	flex-grow: 4;
+	/*width: 300px;*/
+	/*height: 300px;*/
+	background: lightgreen;
+}
