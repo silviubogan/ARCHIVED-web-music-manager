@@ -23,3 +23,5 @@ Tasks
 - add support for other YouTube-like web services such as http://www.trilulilu.ro/
 - implement search
 - option to associate audio files in the filesystem music collection with one or more YouTube URLs
+
+Also see the issues and bugs here: https://github.com/silviubogan/web-music-manager/issues
