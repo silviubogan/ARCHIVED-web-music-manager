@@ -56,11 +56,6 @@ Statique.server({ root: __dirname + "/public" })
 		}
 	});
 
-http.createServer(function (req, res) {
-	if (req.url === "/500") {
-		return Statique.sendRes(res, 500, "html", "500 Internal server error");
-	}
-	Statique.serve(req, res);
-}).listen(port);
+http.createServer(Statique.serve).listen(port);
 
 console.log("Listening on port " + port + ".");
