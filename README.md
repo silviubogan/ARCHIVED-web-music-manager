@@ -6,7 +6,7 @@ A cloud music manager and player.
 Usage
 -----
 
-First install the node module "statique" using the command `npm install statique` in the project directory (which contains the app.js file). Then run `node app.js /path/to/music/collection` (in the project directory) where /path/to/music/collection is the path to your music collection.
+First install the node module "statique" using the command `npm install statique` in the project directory (which contains the app.js file). Then run `node app.js /path/to/music/collection` (in the project directory) where /path/to/music/collection is the path to your music collection, and open [http://localhost/](http://localhost/) in your web browser.
 
 Tested on
 ---------
