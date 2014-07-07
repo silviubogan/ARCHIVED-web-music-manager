@@ -25,3 +25,8 @@ Tasks
 - option to associate audio files in the filesystem music collection with one or more YouTube URLs
 
 Also see the issues and bugs here: https://github.com/silviubogan/web-music-manager/issues
+
+Thanks
+------
+
+- [Ionică Bizău](https://github.com/IonicaBizau), for the easy-to-use `statique` node.js module.
