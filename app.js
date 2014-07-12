@@ -53,7 +53,15 @@ Statique.server({ root: __dirname + "/public" })
 
 			var str = fs.createReadStream(process.argv[2] + src);
 			str.pipe(res);
-		}
+		},
+		"/post-yt-data": function (req, res) {
+			var url_parts = url.parse(req.url, true);
+			var query = url_parts.query;
+			fs.writeFile("public/yt-data.json", query.data, function () {
+				res.end();
+			});	
+		},
+		"/yt-data": "/yt-data.json"
 	});
 
 http.createServer(Statique.serve).listen(port);

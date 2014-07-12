@@ -4,23 +4,32 @@
 		<meta charset="UTF-8">
 		<title>Web Music Manager</title>
 		<link rel="stylesheet" href="style.css">
-		<!--<link rel="stylesheet" href="jstree-3.0.1/themes/default/style.min.css">-->
-		<link rel="stylesheet" href="fancytree-2.1.0/skin-win8/ui.fancytree.min.css">
+		<!--<link rel="stylesheet" href="lib/jstree-3.0.1/themes/default/style.min.css">-->
+		<link rel="stylesheet" href="lib/fancytree-2.1.0/skin-win8/ui.fancytree.min.css">
 	</head>
 	<body>
 		<h1>Web Music Manager</h1>
+		<small>LOVING MUSIC</small>
 		<div id="flex-container">
 			<div id="tree"></div>
 			<div id="right-panel">
 				<div id="current-file-indicator"></div>
-				<audio id="audio" controls>
+				<audio id="audio" controls></audio><br>
+
+				<input type="text" placeholder="YouTube URL" id="yt-url" size="50">
+				<input type="button" id="yt-clear-url-btn" value="x">
+				<input type="button" value="+" id="yt-add-btn"><br>
+				<ul id="yt-list">
+				</ul>
+				<div id="yt-player"></div>
 			</div>
 		</div>
 
-		<script src="jquery-2.1.1.min.js"></script>
-		<!--<script src="jstree-3.0.1/jstree.min.js"></script>-->
-		<script src="jquery-ui-1.10.4/js/jquery-ui-1.10.4.min.js"></script>
-		<script src="fancytree-2.1.0/jquery.fancytree.min.js"></script>
+		<script src="lib/jquery-2.1.1.min.js"></script>
+		<script src="lib/purl.js"></script>
+		<!--<script src="lib/jstree-3.0.1/jstree.min.js"></script>-->
+		<script src="lib/jquery-ui-1.10.4/js/jquery-ui-1.10.4.min.js"></script>
+		<script src="lib/fancytree-2.1.0/jquery.fancytree.min.js"></script>
 		<script src="script.js"></script>
 	</body>
 </html>

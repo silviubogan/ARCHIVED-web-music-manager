@@ -26,6 +26,13 @@ Tasks
 
 Also see the issues and bugs here: https://github.com/silviubogan/web-music-manager/issues
 
+Used libraries
+--------------
+* jQuery
+* [purl](https://github.com/allmarkedup/purl)
+* others (TODO)
+
+
 Thanks
 ------
 
