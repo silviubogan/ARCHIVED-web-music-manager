@@ -3,15 +3,28 @@ web-music-manager
 
 A cloud music manager and player.
 
+
 Usage
 -----
 
-First install the node module "statique" using the command `npm install statique` in the project directory (which contains the app.js file). Then run `node app.js /path/to/music/collection` (in the project directory) where /path/to/music/collection is the path to your music collection, and open [http://localhost/](http://localhost/) in your web browser.
+1. Install the dependencies using the command `npm install` in the project directory (which contains the app.js file).
+2. Run `node app.js`, `npm start` or `node app.js /path/to/music/collection` (in the same directory) where `/path/to/music/collection` is the path to your music collection.
+3. Open [http://localhost/](http://localhost/) in your web browser.
+
 
 Tested on
 ---------
 
-Windows 7 with node.js v0.10.29.
+- Windows 7 with node.js v0.10.29
+- Ubuntu 14.04
+
+
+Contribute
+----------
+
+- Submit issues and bug reports or solve/fix existing issues [here](https://github.com/silviubogan/web-music-manager/issues);
+- Read the tasks listed below;
+- Submit pull requests [here](https://github.com/silviubogan/web-music-manager/pulls).
 
 Tasks
 -----
@@ -25,6 +38,7 @@ Tasks
 - option to associate audio files in the filesystem music collection with one or more YouTube URLs
 
 Also see the issues and bugs here: https://github.com/silviubogan/web-music-manager/issues
+
 
 Used libraries
 --------------
