@@ -1,0 +1,30 @@
+{
+  "name": "web-music-manager",
+  "version": "0.0.0",
+  "description": "A cloud music manager and player.",
+  "main": "app.js",
+  "dependencies": {
+    "statique": "~0.3.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node app.js",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/silviubogan/web-music-manager.git"
+  },
+  "keywords": [
+    "music",
+    "player",
+    "cloud",
+    "web"
+  ],
+  "author": "Silviu Bogan <silviubogan@gmail.com>",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/silviubogan/web-music-manager/issues"
+  },
+  "homepage": "https://github.com/silviubogan/web-music-manager"
+}
