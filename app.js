@@ -61,8 +61,9 @@ Statique.server({ root: __dirname + "/public" })
 			var query = url_parts.query;
 			var src = query.src;
 
-			var str = fs.createReadStream(music_collection_path + src);
-			str.pipe(res);
+                        Statique.serveFile(src, 200, res, req, {
+                            "content-type": "audio/mpeg"
+                        }, music_collection_path);
 		},
 		"/post-yt-data": function (req, res) {
 			var url_parts = url.parse(req.url, true);
