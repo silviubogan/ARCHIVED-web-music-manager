@@ -9,7 +9,7 @@ Usage
 
 1. Install the dependencies using the command `npm install` in the project directory (which contains the app.js file).
 2. Run `node app.js`, `npm start` or `node app.js /path/to/music/collection` (in the same directory) where `/path/to/music/collection` is the path to your music collection.
-3. Open [http://localhost/](http://localhost/) in your web browser.
+3. On Windows, open [http://localhost/](http://localhost/) in your web browser, on other operating systems open [http://localhost:8000/](http://localhost:8000/).
 
 
 Tested on
