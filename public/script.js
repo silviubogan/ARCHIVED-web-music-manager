@@ -73,7 +73,10 @@ $(function () {
 		activate: function (ev, data) {
 			if (!data.node.folder) {
 				$crtFileIndicator.text(data.node.title);
-				$audioPlayer.attr("src", "/audio?src=" + data.node.data.path);
+				$audioPlayer.attr({
+                                    "src": "/audio?src=" + data.node.data.path,
+                                    "autoplay": ""
+                                });
 			}
 		}
 	});
