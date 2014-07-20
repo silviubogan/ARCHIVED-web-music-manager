@@ -1,9 +1,10 @@
 var Statique = require("statique"),
 	http = require("http"),
 	fs = require("fs"),
-	url = require("url");
+	url = require("url"),
+        os = require("os");
 
-var port = 80;
+var port = process.env.PORT || (os.platform() === "win32" ? 80 : 8000);
 if (process.argv[2] === "help") {
 	console.log("You can specify an argument: the filesystem path to your music collection, " +
 		"or you can run the application just with its own data, its collection of online music " +
@@ -68,7 +69,7 @@ Statique.server({ root: __dirname + "/public" })
 			var query = url_parts.query;
 			fs.writeFile(ytDataPath, query.data, function () {
 				res.end();
-			});	
+			});
 		},
 		"/yt-data": function (req, res) {
 			fs.exists(ytDataPath, function (exists) {
