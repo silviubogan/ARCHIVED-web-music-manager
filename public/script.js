@@ -39,6 +39,17 @@ var yt_data = {
 	            cb();
 	        }
 	    });
+	},
+	has_id: function (id) {
+		for (var i = 0; i < yt_data.current_data.length; i++) {
+			if (yt_data.current_data[i] == id) {
+				return true;
+			}
+		}
+		return false;
+	},
+	add_id: function (id) {
+		yt_data.current_data.push(id);
 	}
 };
 
@@ -101,10 +112,15 @@ $(function () {
         var url = $ytUrl.val().trim();
         if (url.length === 0) return;
         var id = $.url(url).param("v");
-        yt_data.current_data.push(id);
-        yt_data.post();
-        add_yt_id(id);
-        $ytUrl.val("");
+        if (!yt_data.has_id(id)) {
+	        yt_data.add_id(id);
+	        yt_data.post();
+	        add_yt_id(id);
+	    } else {
+	    	// TODO: scroll to and highlight the video in the list and show a more friendly and context-aware alert
+	    	alert("This YouTube video is already in the list.");
+	    }
+	    $ytUrl.val("");
     });
     yt_data.load(function () {
         $ytList.empty();
