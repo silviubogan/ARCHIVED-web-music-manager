@@ -50,8 +50,15 @@ var yt_data = {
 	},
 	add_id: function (id) {
 		yt_data.current_data.push(id);
+	},
+	remove_id: function (id) {
+		yt_data.current_data.splice(yt_data.current_data.indexOf(id), 1);
 	}
 };
+
+function yt_id_to_short_url(id) {
+	return "http://youtu.be/" + id;
+}
 
 $(function () {
     var $tree = $("#tree"),
@@ -101,11 +108,23 @@ $(function () {
     function add_yt_id(id) {
         var $li = $("<li>");
         $li.append("<a href='http://www.youtube.com/watch?v=" + id + "'>" + id + "</a>");
-        var $playBtn = $("<input type='button' value='>'>");
+        var $playBtn = $("<input type='button' value='>'>"),
+        	$removeBtn = $("<input type='button' value='x'>"),
+        	$shortUrlBtn = $("<input type='button' value='Copy short URL'>");
         $playBtn.click(function () {
             playYtId(id);
         });
-        $li.append($playBtn);
+        $removeBtn.click(function () {
+        	yt_data.remove_id(id);
+        	yt_data.post();
+        	$li.remove();
+        });
+        $shortUrlBtn.click(function () {
+        	prompt("Short URL:", yt_id_to_short_url(id));
+        });
+        $li.append($playBtn)
+        	.append($removeBtn)
+        	.append($shortUrlBtn);
         $ytList.append($li);
     }
     $ytAddBtn.click(function () {
