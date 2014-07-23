@@ -30,9 +30,9 @@ Tasks
 -----
 
 - organize YouTube collection of music
-	- add YouTube music using URL of the video page
-	- group/sort by artist, album (which may be entered manually by the user for every added YouTube URL)
-	- play YouTube videos inline
+    - add YouTube music using URL of the video page
+    - group/sort by artist, album (which may be entered manually by the user for every added YouTube URL)
+    - play YouTube videos inline
 - add support for other YouTube-like web services such as http://www.trilulilu.ro/
 - implement search
 - option to associate audio files in the filesystem music collection with one or more YouTube URLs
