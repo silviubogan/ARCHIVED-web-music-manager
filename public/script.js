@@ -108,9 +108,9 @@ $(function () {
     function add_yt_id(id) {
         var $li = $("<li>");
         $li.append("<a href='http://www.youtube.com/watch?v=" + id + "'>" + id + "</a>");
-        var $playBtn = $("<input type='button' value='>'>"),
-        	$removeBtn = $("<input type='button' value='x'>"),
-        	$shortUrlBtn = $("<input type='button' value='Copy short URL'>");
+        var $playBtn = $("<input type='button' value='>' title='Play'>"),
+        	$removeBtn = $("<input type='button' value='x' title='Delete'>"),
+        	$shortUrlBtn = $("<input type='button' value='Copy short URL' title='Copy short URL'>");
         $playBtn.click(function () {
             playYtId(id);
         });
