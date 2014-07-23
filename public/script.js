@@ -60,6 +60,14 @@ function yt_id_to_short_url(id) {
 	return "http://youtu.be/" + id;
 }
 
+function yt_url_to_yt_id(url) {
+	url = $.url(url);
+	if (url.attr("host") === "youtu.be") {
+		return url.segment(1);
+	}
+	return url.param("v");
+}
+
 $(function () {
     var $tree = $("#tree"),
         $ytAddBtn = $("#yt-add-btn"),
@@ -130,7 +138,7 @@ $(function () {
     $ytAddBtn.click(function () {
         var url = $ytUrl.val().trim();
         if (url.length === 0) return;
-        var id = $.url(url).param("v");
+        var id = yt_url_to_yt_id(url);
         if (!yt_data.has_id(id)) {
 	        yt_data.add_id(id);
 	        yt_data.post();
