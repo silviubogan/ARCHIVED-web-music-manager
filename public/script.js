@@ -4,14 +4,12 @@ var firstScriptTag = $("script:first").get(0);
 firstScriptTag.parentNode.insertBefore($ytIframeApiScript.get(0), firstScriptTag);
 
 var player;
-
 function playYtId(id) {
     player.loadVideoById({
         "videoId": id,
         "suggestedQuality": "large"
     })
 }
-
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('yt-player', {
         height: '390',
@@ -24,24 +22,25 @@ function onYouTubeIframeAPIReady() {
     });
 }
 
-var ytData;
-
-function postYtData(cb) {
-    var d = { data: JSON.stringify(ytData) };
-    if (cb) {
-        $.get("/post-yt-data", d, cb);
-    } else {
-        $.get("/post-yt-data", d);
-    }
-}
-function loadYtData(cb) {
-    $.get("/yt-data", function (data) {
-        ytData = JSON.parse(data);
-        if (cb) {
-            cb();
-        }
-    });
-}
+var yt_data = {
+	current_data: null,
+	post: function (cb) {
+	    var d = { data: JSON.stringify(this.current_data) };
+	    if (cb) {
+	        $.get("/post-yt-data", d, cb);
+	    } else {
+	        $.get("/post-yt-data", d);
+	    }
+	},
+	load: function (cb) {
+	    $.get("/yt-data", function (data) {
+	        yt_data.current_data = JSON.parse(data);
+	        if (cb) {
+	            cb();
+	        }
+	    });
+	}
+};
 
 $(function () {
     var $tree = $("#tree"),
@@ -74,9 +73,9 @@ $(function () {
             if (!data.node.folder) {
                 $crtFileIndicator.text(data.node.title);
                 $audioPlayer.attr({
-                                    "src": "/audio?src=" + data.node.data.path,
-                                    "autoplay": ""
-                                });
+                    "src": "/audio?src=" + data.node.data.path,
+                    "autoplay": ""
+                });
             }
         }
     });
@@ -88,7 +87,7 @@ $(function () {
     $ytClearUrlBtn.click(function () {
         $ytUrl.val("");
     });
-    function addYtId(id) {
+    function add_yt_id(id) {
         var $li = $("<li>");
         $li.append("<a href='http://www.youtube.com/watch?v=" + id + "'>" + id + "</a>");
         var $playBtn = $("<input type='button' value='>'>");
@@ -102,15 +101,15 @@ $(function () {
         var url = $ytUrl.val().trim();
         if (url.length === 0) return;
         var id = $.url(url).param("v");
-        ytData.push(id);
-        postYtData();
-        addYtId(id);
+        yt_data.current_data.push(id);
+        yt_data.post();
+        add_yt_id(id);
         $ytUrl.val("");
     });
-    loadYtData(function () {
+    yt_data.load(function () {
         $ytList.empty();
-        for (var i = 0; i < ytData.length; i++) {
-            addYtId(ytData[i]);
+        for (var i = 0; i < yt_data.current_data.length; i++) {
+            add_yt_id(yt_data.current_data[i]);
         }
     });
 });

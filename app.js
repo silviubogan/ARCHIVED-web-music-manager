@@ -62,14 +62,16 @@ Statique.server({ root: __dirname + "/public" })
             var src = query.src;
 
             Statique.serveFile(src, 200, res, req, {
-                "content-type": "audio/mpeg"
+                "Content-Type": "audio/mpeg"
             }, music_collection_path);
         },
         "/post-yt-data": function (req, res) {
             var url_parts = url.parse(req.url, true);
             var query = url_parts.query;
-            fs.writeFile(ytDataPath, query.data, function () {
-                res.end();
+            fs.writeFile(ytDataPath, query.data, function (err) {
+            	if (err) throw err;
+            	console.log("/post-yt-data: " + query.data);
+            	res.end();
             });
         },
         "/yt-data": function (req, res) {
@@ -77,11 +79,13 @@ Statique.server({ root: __dirname + "/public" })
                 if (exists) {
                     fs.readFile(ytDataPath, function (err, data) {
                         if (err) throw err;
+                        console.log("/yt-data(exists): " + data);
                         res.end(data);
                     });
                 } else {
                     fs.writeFile(ytDataPath, "[]", function (err) {
                         if (err) throw err;
+                        console.log("/yt-data(new): []");
                         res.end("[]");
                     });
                 }
