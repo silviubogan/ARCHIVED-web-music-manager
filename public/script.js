@@ -107,7 +107,7 @@ $(function () {
                 $crtFileIndicator.text(data.node.title);
                 $audioPlayer.attr({
                     "src": "/audio?src=" + data.node.data.path,
-                    "autoplay": ""
+                    "autoplay": "" // maybe this could be set only once, probably in the HTML file
                 });
             }
         }
@@ -121,7 +121,7 @@ $(function () {
         $ytUrl.val("");
     });
 
-    function add_yt_id(id) {
+    function add_yt_id_to_ui(id) {
         var $li = $("<li>"),
             $a = $("<a href='http://www.youtube.com/watch?v=" + id + "'>Loading title...</a>"),
             $playBtn = $("<input type='button' value='>' title='Play'>"),
@@ -159,7 +159,7 @@ $(function () {
         if (!yt_data.has_id(id)) {
             yt_data.add_id(id);
             yt_data.post();
-            add_yt_id(id);
+            add_yt_id_to_ui(id);
         } else {
             // TODO: scroll to and highlight the video in the list and show a more friendly and context-aware alert
             alert("This YouTube video is already in the list.");
@@ -169,7 +169,7 @@ $(function () {
     yt_data.load(function () {
         $ytList.empty();
         for (var i = 0; i < yt_data.current_data.length; i++) {
-            add_yt_id(yt_data.current_data[i]);
+            add_yt_id_to_ui(yt_data.current_data[i]);
         }
     });
 });
