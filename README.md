@@ -51,3 +51,9 @@ Thanks
 ------
 
 - [Ionică Bizău](https://github.com/IonicaBizau), for the easy-to-use `statique` node.js module.
+
+
+License
+-------
+
+This project is licensed under The MIT License.
