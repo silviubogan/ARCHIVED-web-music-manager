@@ -17,15 +17,23 @@
                 <audio id="audio" controls></audio><br>
 
                 <input type="text" placeholder="YouTube URL" id="yt-url" size="50">
-                <input type="button" id="yt-clear-url-btn" value="x" title="Clear">
+                <input type="button" id="yt-clear-url-btn" value="&times;" title="Clear">
                 <input type="button" value="+" id="yt-add-btn" title="Add"><br>
                 <ul id="yt-list">
+                </ul>
+                <p>
+                    <strong>Playlist:</strong>
+                    <input type="button" value="Repeat: off" title="Toggle repeat modes" id="yt-repeat-btn">
+                </p>
+                <ul id="yt-playlist">
                 </ul>
                 <div id="yt-player"></div>
             </div>
         </div>
 
-        <script src="lib/jquery-2.1.1.min.js"></script>
+        <script src="lib/jquery-2.1.3.min.js"></script>
+        <script src="lib/underscore-min.js"></script>
+        <script src="lib/backbone-min.js"></script>
         <script src="lib/purl.js"></script>
         <!--<script src="lib/jstree-3.0.1/jstree.min.js"></script>-->
         <script src="lib/jquery-ui-1.10.4/js/jquery-ui-1.10.4.min.js"></script>

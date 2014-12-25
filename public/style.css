@@ -38,3 +38,7 @@ div#right-panel {
     /*height: 300px;*/
     background: lightgreen;
 }
+
+#yt-list a, #yt-playlist a {
+    text-decoration: none;
+}
