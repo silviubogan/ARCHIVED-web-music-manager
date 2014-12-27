@@ -4,7 +4,7 @@
   "description": "A cloud music manager and player.",
   "main": "app.js",
   "dependencies": {
-    "statique": "~0.3.7"
+    "statique": "1.0.2"
   },
   "devDependencies": {},
   "scripts": {
@@ -22,7 +22,10 @@
     "web"
   ],
   "author": "Silviu Bogan <silviubogan@gmail.com>",
-  "license": "",
+  "contributors": [
+    "Ionică Bizău <bizauionica@gmail.com>"
+  ],
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/silviubogan/web-music-manager/issues"
   },
